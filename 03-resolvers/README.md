@@ -1,6 +1,6 @@
 # 03
 
-[![Edit 1 - Basic Query](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/1-basic-query-xl2xw?fontsize=14)
+[![Edit Apollo Server](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/apollo-server-1uq1d?fontsize=14)
 
 ## Setup
 
