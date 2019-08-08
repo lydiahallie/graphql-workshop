@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "graphql-workshop",
+  "env": {
+    "IS_NOW": "true"
+  },
+  "builds": [{ "src": "/index.js", "use": "@now/node-server@canary" }],
+  "routes": [{ "src": "/.*", "dest": "index.js" }],
+  "build": {
+    "env": {
+      "JWT_SECRET": "@jwt_secret",
+      "SHARED_KEY": "@shared_key",
+      "PRISMA_ENDPOINT": "@prisma_endpoint"
+    }
+  }
+}

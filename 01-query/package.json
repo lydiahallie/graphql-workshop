@@ -1,0 +1,13 @@
+{
+  "name": "01-query",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.18.1",
+    "uniqid": "^5.0.3"
+  },
+  "scripts": {
+    "start": "node index"
+  }
+}
