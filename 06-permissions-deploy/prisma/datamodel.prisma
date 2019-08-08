@@ -5,4 +5,5 @@ type User {
   website: String
   email: String! @unique
   password: String!
+  isAdmin: Boolean!
 }

@@ -1,5 +1,25 @@
 # 06
 
+Not everyone should be allowed to query anything. To handle permissions, we can use `graphql-shield`. With `graphql-shield`, we can specify who is allowed and isn't allowed to make certain queries or mutations.
+
+In the `permissions` folder, there are two files: `index.js` which specifies to which types and fields the rules apply, and `rules.js` which contain the rules. The functions in `rules.js` return either true or false.
+
+We can add this shield in the middlewares array:
+
+```
+const server = new GraphQLServer({
+  typeDefs: __dirname + "/schema.graphql",
+  resolvers,
+  middlewares: [permissions],
+  context: req => ({
+    ...req,
+    prisma
+  })
+});
+```
+
+---
+
 Now that we have a basic server, we can deploy it! In order to deploy it, you can use Zeit Now.
 
 First, install the now cli using:

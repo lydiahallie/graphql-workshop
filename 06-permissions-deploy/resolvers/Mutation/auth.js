@@ -3,11 +3,12 @@ const { hashPassword, comparePassword } = require("../../utils/auth");
 
 const auth = {
   signupUser: async (root, { input }, ctx) => {
-    const { name, email, password } = input;
+    const { name, email, password, isAdmin } = input;
 
     const user = await ctx.prisma.createUser({
       name,
       email,
+      isAdmin,
       password: hashPassword(password)
     });
 

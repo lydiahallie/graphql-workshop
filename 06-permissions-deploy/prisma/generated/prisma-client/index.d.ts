@@ -113,7 +113,9 @@ export type UserOrderByInput =
   | "email_ASC"
   | "email_DESC"
   | "password_ASC"
-  | "password_DESC";
+  | "password_DESC"
+  | "isAdmin_ASC"
+  | "isAdmin_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -207,6 +209,8 @@ export interface UserWhereInput {
   password_not_starts_with?: Maybe<String>;
   password_ends_with?: Maybe<String>;
   password_not_ends_with?: Maybe<String>;
+  isAdmin?: Maybe<Boolean>;
+  isAdmin_not?: Maybe<Boolean>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
@@ -219,6 +223,7 @@ export interface UserCreateInput {
   website?: Maybe<String>;
   email: String;
   password: String;
+  isAdmin: Boolean;
 }
 
 export interface UserUpdateInput {
@@ -227,6 +232,7 @@ export interface UserUpdateInput {
   website?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
+  isAdmin?: Maybe<Boolean>;
 }
 
 export interface UserUpdateManyMutationInput {
@@ -235,6 +241,7 @@ export interface UserUpdateManyMutationInput {
   website?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
+  isAdmin?: Maybe<Boolean>;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -259,6 +266,7 @@ export interface User {
   website?: String;
   email: String;
   password: String;
+  isAdmin: Boolean;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
@@ -268,6 +276,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   website: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  isAdmin: () => Promise<Boolean>;
 }
 
 export interface UserSubscription
@@ -279,6 +288,7 @@ export interface UserSubscription
   website: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  isAdmin: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface UserNullablePromise
@@ -290,6 +300,7 @@ export interface UserNullablePromise
   website: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  isAdmin: () => Promise<Boolean>;
 }
 
 export interface UserConnection {
@@ -417,6 +428,7 @@ export interface UserPreviousValues {
   website?: String;
   email: String;
   password: String;
+  isAdmin: Boolean;
 }
 
 export interface UserPreviousValuesPromise
@@ -428,6 +440,7 @@ export interface UserPreviousValuesPromise
   website: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  isAdmin: () => Promise<Boolean>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -439,6 +452,7 @@ export interface UserPreviousValuesSubscription
   website: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  isAdmin: () => Promise<AsyncIterator<Boolean>>;
 }
 
 /*
@@ -453,14 +467,14 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string;
 
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
-*/
-export type Int = number;
-
-/*
 The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
+
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+*/
+export type Int = number;
 
 export type Long = string;
 

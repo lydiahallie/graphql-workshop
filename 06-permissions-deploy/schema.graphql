@@ -20,6 +20,7 @@ type User {
   company: String
   website: String
   email: String!
+  isAdmin: Boolean!
 }
 
 input UserInput {
@@ -28,4 +29,5 @@ input UserInput {
   website: String
   email: String!
   password: String!
+  isAdmin: Boolean!
 }

@@ -57,6 +57,7 @@ type User {
   website: String
   email: String!
   password: String!
+  isAdmin: Boolean!
 }
 
 type UserConnection {
@@ -72,6 +73,7 @@ input UserCreateInput {
   website: String
   email: String!
   password: String!
+  isAdmin: Boolean!
 }
 
 type UserEdge {
@@ -92,6 +94,8 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
+  isAdmin_ASC
+  isAdmin_DESC
 }
 
 type UserPreviousValues {
@@ -101,6 +105,7 @@ type UserPreviousValues {
   website: String
   email: String!
   password: String!
+  isAdmin: Boolean!
 }
 
 type UserSubscriptionPayload {
@@ -127,6 +132,7 @@ input UserUpdateInput {
   website: String
   email: String
   password: String
+  isAdmin: Boolean
 }
 
 input UserUpdateManyMutationInput {
@@ -135,6 +141,7 @@ input UserUpdateManyMutationInput {
   website: String
   email: String
   password: String
+  isAdmin: Boolean
 }
 
 input UserWhereInput {
@@ -222,6 +229,8 @@ input UserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
+  isAdmin: Boolean
+  isAdmin_not: Boolean
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
