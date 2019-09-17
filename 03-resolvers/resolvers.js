@@ -4,9 +4,9 @@ const { USERS, POSTS } = require("./data");
 const resolvers = {
   Query: {
     user: (root, args) => USERS.find(user => user.id === args.id),
-    users: (root, args) => USERS,
-    post: (root, args) => POSTS.find(post => post.id === args.id),
-    posts: (root, args) => POSTS
+    users: (root, args) => USERS
+    // post: (root, args) => POSTS.find(post => post.id === args.id),
+    // posts: (root, args) => POSTS
   },
 
   Mutation: {
@@ -19,9 +19,11 @@ const resolvers = {
       USERS.push(user);
       return user;
     }
-  }
+  },
 
-  // User: {}
+  User: {
+    favoriteNumber: (root, args) => Math.floor(Math.random() * 100)
+  }
 };
 
 module.exports = resolvers;

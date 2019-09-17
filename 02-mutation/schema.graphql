@@ -6,7 +6,7 @@ type Query {
 }
 
 type Mutation {
-  # createUser
+  createUser(input: UserInput!): User!
 }
 
 type User {
@@ -31,4 +31,19 @@ type Post {
   description: String!
   author: User!
   body: String!
+}
+
+input UserInput {
+  name: String!
+  company: String!
+  address: AddressInput!
+  website: String!
+  email: String
+}
+
+input AddressInput {
+  street: String!
+  postalCode: String!
+  city: String!
+  state: String!
 }

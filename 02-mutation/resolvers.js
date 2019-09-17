@@ -10,7 +10,15 @@ const resolvers = {
   },
 
   Mutation: {
-    // createUser
+    createUser: (root, { input }) => {
+      const user = {
+        id: uniqid(),
+        ...input
+      };
+
+      USERS.push(user);
+      return user;
+    }
   }
 };
 

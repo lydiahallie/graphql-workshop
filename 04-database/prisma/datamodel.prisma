@@ -1,0 +1,9 @@
+type User {
+  id: ID! @id
+  name: String!
+  company: String!
+  website: String!
+  email: String @unique
+  favoriteNumber: Int!
+}
+

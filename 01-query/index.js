@@ -5,6 +5,8 @@ const typeDefs = `
   type Query {
     user(id: ID!): User!
     users: [User!]!
+    post(id: ID!): Post!
+    posts: [Post!]!
   }
 
   type User {
@@ -22,12 +24,22 @@ const typeDefs = `
     city: String!
     state: String!
   }
+
+  type Post {
+    id: ID!
+    title: String!
+    description: String!
+    author: User!
+    body: String!
+  }
 `;
 
 const resolvers = {
   Query: {
     user: (root, args, context) => USERS.find(user => user.id === args.id),
-    users: (root, args, context) => USERS
+    users: (root, args, context) => USERS,
+    post: (root, args, context) => POSTS.find(post => post.id === args.id),
+    posts: (root, args, context) => POSTS
   }
 };
 

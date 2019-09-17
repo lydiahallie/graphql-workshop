@@ -1,13 +1,16 @@
 const resolvers = {
   Query: {
-    // user:  one user: ctx.prisma.user({ id: args.id })
-    // users: all users: ctx.prisma.users()
-    // post:  one post: ctx.prisma.post({ id: args.id })
-    // posts: all posts: ctx.prisma.posts()
+    user: (root, args, ctx) => ctx.prisma.user({ id: args.id }),
+    users: (root, args, ctx) => ctx.prisma.users()
   },
 
   Mutation: {
-    // createUser: create a user : ctx.prisma.createUser(input)
+    createUser: (root, { input }, ctx) => {
+      console.log(input);
+      return ctx.prisma.createUser({
+        data: { input }
+      });
+    }
   }
 };
 

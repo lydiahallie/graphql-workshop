@@ -13,6 +13,7 @@ type User {
   company: String!
   website: String!
   email: String
+  favoriteNumber: Int!
 }
 
 input UserInput {
